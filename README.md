@@ -1,5 +1,5 @@
-# UB-Parking-App
-Project to help students find parking spaces.
+# Sextuply Linked List
+Project that implements a sextuply linked-list.
 
 ```
 cup
