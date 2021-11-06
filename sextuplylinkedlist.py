@@ -1,6 +1,6 @@
 class SextuplyLinkedList:
     _head = None
-    _height = _width = _depth = 0
+    __height = __width = __depth = 0
 
     # Linked list functions
     # Apply
@@ -8,6 +8,7 @@ class SextuplyLinkedList:
     # Iterator
 
     def __init__(self, node):
-        self._head = node
-        _width = 1
+        self.__head = node
+        self.__width = 1
+
 
