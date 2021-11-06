@@ -2,17 +2,23 @@ from Node import Node
 
 
 class SextuplyLinkedList:
+<<<<<<< HEAD
     _head: Node = None
     _RowIterator: Node = None
     _ColIterator: Node = None
     _DepIterator: Node = None
     _height = _width = _depth = 0
+=======
+    _head = None
+    __height = __width = __depth = 0
+>>>>>>> 9f809cc3bcc3c2f6b942b2d10b56d8bbb6a8296f
 
     # Linked list functions
     # Apply
     # Insert/Remove
     # Iterator
 
+<<<<<<< HEAD
     def __init__(self, height, width, depth):
         self._height = height
         self._width = width
@@ -52,5 +58,11 @@ class SextuplyLinkedList:
                 self._RowIterator = self._ColIterator
 
             self._RowIterator = self._DepIterator
+=======
+    def __init__(self, node):
+        self.__head = node
+        self.__width = 1
+
+>>>>>>> 9f809cc3bcc3c2f6b942b2d10b56d8bbb6a8296f
 
         return
