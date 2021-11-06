@@ -1,16 +1,10 @@
 class Coordinate(self):
-    def pos_x(self):
-        return self.x
+    # Private x, y, and z coordinates
+    _x = None
+    _y = None
+    _z = None
 
-
-    def pos_y(self):
-        return self.y
-
-
-    def pos_z(self):
-        return self.z
-
-    def __init__(self, x, y, z):
-        self.x = x
-        self.y = y
-        self.z = z
+    def __init__(self, i, j, k):
+        self._x = i
+        self._y = j
+        self._z = k
