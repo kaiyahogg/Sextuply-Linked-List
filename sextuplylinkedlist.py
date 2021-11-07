@@ -1,4 +1,5 @@
 from Node import Node
+from Coordinate import Coordinate
 
 class SextuplyLinkedList:
     _head: Node = None
@@ -22,7 +23,7 @@ class SextuplyLinkedList:
 
         #grid for each layer
         createHyperGrid(dz, _width, _depth)
-
+        return
 
     def createHyperGrid(self, width, depth):
         for dz in height:
@@ -51,5 +52,18 @@ class SextuplyLinkedList:
                 self._RowIterator = self._ColIterator
 
             self._RowIterator = self._DepIterator
+
+        return
+
+    def getNode(self, coords: Coordinate):
+
+        self._RowIterator = self._head
+
+        for x in coords.x:
+            self._RowIterator = self._RowIterator._right
+        for y in coords.y:
+            self._RowIterator = self._RowIterator._forward
+        for z in coords.z:
+            self._RowIterator = self._RowIterator._up
 
         return
