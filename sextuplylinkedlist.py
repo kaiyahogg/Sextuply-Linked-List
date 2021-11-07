@@ -21,7 +21,6 @@ class SextuplyLinkedList:
         self._head = Node("head")
         self._RowIterator = self._ColIterator = self._DepIterator = self._head
 
-        #grid for each layer
         createHyperGrid(dz, _width, _depth)
         return
 
@@ -30,7 +29,7 @@ class SextuplyLinkedList:
             for dy in depth:
                 for dx in width:
 
-                    if(dy==0):
+                    if dy==0:
                         self._RowIterator._right = Node()
                     else:
                         self._RowIterator._right = self._RowIterator._back._right._forward
@@ -59,11 +58,11 @@ class SextuplyLinkedList:
 
         self._RowIterator = self._head
 
-        for x in coords.x:
+        for x in range(coords.x):
             self._RowIterator = self._RowIterator._right
-        for y in coords.y:
+        for y in range(coords.y):
             self._RowIterator = self._RowIterator._forward
-        for z in coords.z:
+        for z in range(coords.z):
             self._RowIterator = self._RowIterator._up
 
         return
