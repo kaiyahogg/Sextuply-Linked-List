@@ -1,11 +1,10 @@
 class Node:
     # Node state variables
-    def __init__(self, data):
-        self._data = data
-        self._up = None
-        self._down = None
-        self._left = None
-        self._right = None
-        self._back = None
-        self._forward = None
-    
+    def __init__(self):
+        self.data = None
+        self.up = None
+        self.down = None
+        self.left = None
+        self.right = None
+        self.back = None
+        self.forward = None

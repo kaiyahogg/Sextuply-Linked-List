@@ -1,31 +1,24 @@
 from Node import Node
 from Coodinate import Coordinate
 
-
 class SextuplyLinkedList:
-    _head: Node = None
-    _RowIterator: Node = None
-    _ColIterator: Node = None
-    _DepIterator: Node = None
-    _height = _width = _depth = 0
+    head: Node = None
+    RowIterator: Node = None
+    ColIterator: Node = None
+    DepIterator: Node = None
+    height = width = depth = 0
 
-    # Linked list functions
-    # Apply
-    # Insert/Remove
-    # Iterator
+    def __init__(self, height, width, depth):
+        # self.data = data
+        self.height = height
+        self.width = width
+        self.depth = depth
 
-    def __init__(self, data, height, width, depth):
-        self.data = data
-        self._height = height
-        self._width = width
-        self._depth = depth
+        self.head = Node()
+        self.RowIterator = self.ColIterator = self.DepIterator = self.head
 
-        self._head = Node("head")
-        self._RowIterator = self._ColIterator = self._DepIterator = self._head
-
-        createHyperGrid(dz, _width, _depth)
         # grid for each layer
-        self.createHyperGrid(self._width, self._depth)
+        self.createHyperGrid(self.height, self.width, self.depth)
         return
 
     def createHyperGrid(self, width, depth, height):
@@ -34,43 +27,43 @@ class SextuplyLinkedList:
                 for dx in range(width):
 
                     if dy==0:
-                        self._RowIterator._right = Node()
+                        self.RowIterator.right = Node()
                     else:
-                        self._RowIterator._right = self._RowIterator._back._right._forward
+                        self.RowIterator.right = self.RowIterator.back.right.forward
 
                     if dz == 0:
-                        self._RowIterator._forward = Node()
+                        self.RowIterator.forward = Node()
                     else:
-                        self._RowIterator._forward = self._RowIterator._down._forward._up
+                        self.RowIterator.forward = self.RowIterator.down.forward.up
 
-                    self._RowIterator._up = Node()
+                    self.RowIterator.up = Node()
 
                     # doubly link
-                    self._RowIterator._right._left = self._RowIterator
-                    self._RowIterator._forward._back = self._RowIterator
-                    self._RowIterator._up._down = self._RowIterator
+                    self.RowIterator.right.left = self.RowIterator
+                    self.RowIterator.forward.back = self.RowIterator
+                    self.RowIterator.up.down = self.RowIterator
 
                     if (dx == 0):
-                        self._ColIterator = self._RowIterator._forward
-                        self._DepIterator = self._ColIterator._up
+                        self.ColIterator = self.RowIterator.forward
+                        self.DepIterator = self.RowIterator.up
 
-                    self._RowIterator = self._RowIterator._right
+                    self.RowIterator = self.RowIterator.right
 
-                self._RowIterator = self._ColIterator
+                self.RowIterator = self.ColIterator
 
-            self._RowIterator = self._DepIterator
+            self.RowIterator = self.DepIterator
 
         return
 
     def getNode(self, coords: Coordinate):
 
-        self._RowIterator = self._head
+        self.RowIterator = self.head
 
         for x in range(coords.x):
-            self._RowIterator = self._RowIterator._right
+            self.RowIterator = self.RowIterator.right
         for y in range(coords.y):
-            self._RowIterator = self._RowIterator._forward
+            self.RowIterator = self.RowIterator.forward
         for z in range(coords.z):
-            self._RowIterator = self._RowIterator._up
+            self.RowIterator = self.RowIterator.up
 
         return

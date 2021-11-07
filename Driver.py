@@ -6,4 +6,6 @@ class Driver:
 
         cube = SextuplyLinkedList(5, 5, 5)
 
+        print(cube.head)
+
 Driver()

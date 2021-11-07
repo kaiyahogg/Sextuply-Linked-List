@@ -1,10 +1,10 @@
 class Coordinate:
     # Private x, y, and z coordinates
-    _x = None
-    _y = None
-    _z = None
+    x = None
+    y = None
+    z = None
 
     def __init__(self, i, j, k):
-        self._x = i
-        self._y = j
-        self._z = k
+        self.x = i
+        self.y = j
+        self.z = k
