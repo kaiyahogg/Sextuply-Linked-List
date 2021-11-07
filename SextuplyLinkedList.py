@@ -1,5 +1,6 @@
 from Node import Node
-from Coordinate import Coordinate
+from Coodinate import Coordinate
+
 
 class SextuplyLinkedList:
     _head: Node = None
@@ -13,7 +14,8 @@ class SextuplyLinkedList:
     # Insert/Remove
     # Iterator
 
-    def __init__(self, height, width, depth):
+    def __init__(self, data, height, width, depth):
+        self.data = data
         self._height = height
         self._width = width
         self._depth = depth
@@ -21,24 +23,24 @@ class SextuplyLinkedList:
         self._head = Node("head")
         self._RowIterator = self._ColIterator = self._DepIterator = self._head
 
-        #grid for each layer
-        createHyperGrid(dz, _width, _depth)
-        return
+        # grid for each layer
+        self.createHyperGrid(self._width, self._depth)
+        # return
 
     def createHyperGrid(self, width, depth):
-        for dz in height:
-            for dy in depth:
-                for dx in width:
+        for dz in range(self._height):
+            for dy in range(depth):
+                for dx in range(width):
 
-                    if(dy==0):
-                        self._RowIterator._right = Node()
+                    if (dy == 0):
+                        self._RowIterator._right = Node(None)
                     else:
                         self._RowIterator._right = self._RowIterator._back._right._forward
 
-                    self._RowIterator._forward = Node()
-                    self._RowIterator._up = Node()
+                    self._RowIterator._forward = Node(None)
+                    self._RowIterator._up = Node(None)
 
-                    #doubly link
+                    # doubly link
                     self._RowIterator._right._left = self._RowIterator
                     self._RowIterator._forward._back = self._RowIterator
                     self._RowIterator._up._down = self._RowIterator

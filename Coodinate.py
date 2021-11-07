@@ -1,4 +1,4 @@
-class Coordinate(self):
+class Coordinate:
     # Private x, y, and z coordinates
     _x = None
     _y = None
